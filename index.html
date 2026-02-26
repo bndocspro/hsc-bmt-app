@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="bn" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSC BMT - সকল গাইড বই | এক অ্যাপে সব সমাধান</title>
+    <meta name="description"
+        content="HSC BMT সকল গাইড বই - এইচএসসি বিএমটি শাখার সকল বিষয়ের নির্ভুল সমাধান এক অ্যাপে। বাংলা, ইংরেজি, অ্যাকাউন্টিং সহ সব গাইড ডাউনলোড করুন।">
+    <link rel="icon" type="image/png" href="img/hsc bmt app icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Cursor Glow Effect -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Background Grid -->
+    <div class="bg-grid"></div>
+
+    <!-- Particle Canvas -->
+    <canvas class="particle-canvas" id="particleCanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo" id="navLogo">
+                <img src="img/hsc bmt app icon.png" alt="HSC BMT Logo" class="nav-logo-img">
+                <span class="nav-logo-text">HSC BMT</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero" class="nav-link active" data-section="hero">হোম</a></li>
+                <li><a href="#features" class="nav-link" data-section="features">ফিচার</a></li>
+                <li><a href="#subjects" class="nav-link" data-section="subjects">বিষয়সমূহ</a></li>
+                <li><a href="#screenshots" class="nav-link" data-section="screenshots">স্ক্রিনশট</a></li>
+                <li><a href="#download" class="nav-link" data-section="download">ডাউনলোড</a></li>
+            </ul>
+            <a href="#download" class="nav-cta" id="navCta">
+                <span>ডাউনলোড করুন</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7 17l9.2-9.2M17 17V7.8H7.8" />
+                </svg>
+            </a>
+            <button class="nav-hamburger" id="navHamburger" aria-label="Toggle Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-links">
+            <li><a href="#hero" class="mobile-nav-link">হোম</a></li>
+            <li><a href="#features" class="mobile-nav-link">ফিচার</a></li>
+            <li><a href="#subjects" class="mobile-nav-link">বিষয়সমূহ</a></li>
+            <li><a href="#screenshots" class="mobile-nav-link">স্ক্রিনশট</a></li>
+            <li><a href="#download" class="mobile-nav-link">ডাউনলোড</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-elements">
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+            <div class="hero-orb hero-orb-3"></div>
+
+            <!-- Morphing Blob -->
+            <svg class="morphing-blob" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                <path fill="url(#blobGrad)" opacity="0.07">
+                    <animate attributeName="d" dur="12s" repeatCount="indefinite" values="
+                        M300,220C340,180,420,160,460,200C500,240,520,320,480,380C440,440,360,460,300,440C240,420,180,380,160,320C140,260,200,220,240,200C280,180,260,260,300,220Z;
+                        M300,200C360,160,440,180,480,220C520,260,500,360,460,400C420,440,340,460,280,440C220,420,160,360,180,300C200,240,240,200,280,180C320,160,240,240,300,200Z;
+                        M300,240C350,200,430,170,470,210C510,250,510,340,470,390C430,440,350,470,290,450C230,430,170,370,170,310C170,250,220,210,260,190C300,170,250,280,300,240Z;
+                        M300,220C340,180,420,160,460,200C500,240,520,320,480,380C440,440,360,460,300,440C240,420,180,380,160,320C140,260,200,220,240,200C280,180,260,260,300,220Z
+                    " />
+                </path>
+                <defs>
+                    <radialGradient id="blobGrad" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#00D4AA" />
+                        <stop offset="100%" stop-color="#8B5CF6" />
+                    </radialGradient>
+                </defs>
+            </svg>
+
+            <!-- Rotating Ring -->
+            <div class="hero-ring">
+                <svg viewBox="0 0 400 400" fill="none">
+                    <circle cx="200" cy="200" r="180" stroke="url(#ringGrad)" stroke-width="0.5" stroke-dasharray="8 12"
+                        opacity="0.3" />
+                    <circle cx="200" cy="200" r="140" stroke="url(#ringGrad2)" stroke-width="0.5"
+                        stroke-dasharray="4 16" opacity="0.2" />
+                    <defs>
+                        <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#00D4AA" />
+                            <stop offset="100%" stop-color="transparent" />
+                        </linearGradient>
+                        <linearGradient id="ringGrad2" x1="1" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#8B5CF6" />
+                            <stop offset="100%" stop-color="transparent" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+
+            <div class="hero-line-art">
+                <svg viewBox="0 0 800 600" fill="none" class="line-svg">
+                    <path class="line-draw" d="M0,300 Q200,100 400,300 T800,300" stroke="url(#lineGrad1)"
+                        stroke-width="1.5" />
+                    <path class="line-draw line-draw-delay" d="M0,350 Q200,150 400,350 T800,350"
+                        stroke="url(#lineGrad2)" stroke-width="1" />
+                    <path class="line-draw line-draw-delay-2" d="M0,250 Q300,50 500,250 T800,200"
+                        stroke="url(#lineGrad3)" stroke-width="0.8" />
+                    <defs>
+                        <linearGradient id="lineGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#00D4AA" stop-opacity="0" />
+                            <stop offset="50%" stop-color="#00D4AA" stop-opacity="0.6" />
+                            <stop offset="100%" stop-color="#0088FF" stop-opacity="0" />
+                        </linearGradient>
+                        <linearGradient id="lineGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0" />
+                            <stop offset="50%" stop-color="#8B5CF6" stop-opacity="0.4" />
+                            <stop offset="100%" stop-color="#EC4899" stop-opacity="0" />
+                        </linearGradient>
+                        <linearGradient id="lineGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#06B6D4" stop-opacity="0" />
+                            <stop offset="50%" stop-color="#06B6D4" stop-opacity="0.3" />
+                            <stop offset="100%" stop-color="#00D4AA" stop-opacity="0" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+
+        <div class="hero-container">
+            <div class="hero-content" data-parallax="0.15">
+                <div class="hero-badge reveal-up">
+                    <span class="badge-dot"></span>
+                    <span>নতুন সিলেবাস অনুযায়ী আপডেটেড</span>
+                </div>
+                <h1 class="hero-title reveal-up reveal-delay-1" data-split-text>
+                    <span class="title-line" data-text-reveal>এইচএসসি বিএমটি</span>
+                    <span class="title-line"><span class="highlight-text" data-highlight>সকল গাইড বই</span></span>
+                    <span class="title-line title-sub">এক অ্যাপে সব সমাধান</span>
+                </h1>
+                <p class="hero-description reveal-up reveal-delay-2">
+                    বিএমটি শাখার সকল বিষয়ের নতুন সিলেবাস অনুযায়ী নির্ভুল সমাধান পাবে আমাদের এই অ্যাপটিতে।
+                    অনলাইন এবং অফলাইনে পড়ুন, যেকোনো সময়, যেকোনো জায়গায়।
+                </p>
+                <div class="hero-actions reveal-up reveal-delay-3">
+                    <a href="#download" class="btn btn-primary btn-magnetic" id="heroCta">
+                        <span class="btn-ripple"></span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+                        <span>ফ্রি ডাউনলোড করুন</span>
+                    </a>
+                    <a href="#features" class="btn btn-outline" id="heroExplore">
+                        <span>ফিচার দেখুন</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="hero-stats reveal-up reveal-delay-4">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="10">0</span><span class="stat-plus">+</span>
+                        <span class="stat-label">বিষয়ের গাইড</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="50">0</span><span class="stat-plus">K+</span>
+                        <span class="stat-label">ডাউনলোড</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="4.8">0</span><span class="stat-plus">★</span>
+                        <span class="stat-label">রেটিং</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual" data-parallax="-0.1">
+                <div class="phone-mockup reveal-scale">
+                    <div class="phone-glow"></div>
+                    <div class="phone-frame">
+                        <img src="img/1.png" alt="HSC BMT App Screenshot" class="phone-screen" loading="eager">
+                    </div>
+                    <div class="floating-card floating-card-1 reveal-float">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00D4AA" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                            <path d="M2 17l10 5 10-5" />
+                            <path d="M2 12l10 5 10-5" />
+                        </svg>
+                        <span>১০+ বিষয়</span>
+                    </div>
+                    <div class="floating-card floating-card-2 reveal-float">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                        </svg>
+                        <span>অফলাইনে পড়ুন</span>
+                    </div>
+                    <div class="floating-card floating-card-3 reveal-float">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EC4899" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                        </svg>
+                        <span>ফ্রি ডাউনলোড</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator reveal-up reveal-delay-5" id="scrollIndicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>স্ক্রল করুন</span>
+        </div>
+    </section>
+
+    <!-- Marquee Section -->
+    <section class="marquee-section">
+        <div class="marquee-track">
+            <div class="marquee-content">
+                <span class="marquee-item">বাংলা</span>
+                <span class="marquee-dot">◆</span>
+                <span class="marquee-item">ইংরেজি</span>
+                <span class="marquee-dot">◆</span>
+                <span class="marquee-item">কম্পিউটার অফিস এপ্লিকেশন</span>
+                <span class="marquee-dot">◆</span>
+                <span class="marquee-item">অফিস ম্যানেজমেন্ট</span>
+                <span class="marquee-dot">◆</span>
+                <span class="marquee-item">হিসাববিজ্ঞান</span>
+                <span class="marquee-dot">◆</span>
+                <span class="marquee-item">ব্যবসায় সংগঠন</span>
+                <span class="marquee-dot">◆</span>
+                <span class="marquee-item">মার্কেটিং</span>
+                <span class="marquee-dot">◆</span>
+                <span class="marquee-item">ডিজিটাল টেকনোলজি</span>
+                <span class="marquee-dot">◆</span>
+                <span class="marquee-item">হিউম্যান রিসোর্স</span>
+                <span class="marquee-dot">◆</span>
+                <span class="marquee-item">বিজনেস ইংলিশ</span>
+                <span class="marquee-dot">◆</span>
+                <!-- Duplicate for seamless loop -->
+                <span class="marquee-item">বাংলা</span>
+                <span class="marquee-dot">◆</span>
+                <span class="marquee-item">ইংরেজি</span>
+                <span class="marquee-dot">◆</span>
+                <span class="marquee-item">কম্পিউটার অফিস এপ্লিকেশন</span>
+                <span class="marquee-dot">◆</span>
+                <span class="marquee-item">অফিস ম্যানেজমেন্ট</span>
+                <span class="marquee-dot">◆</span>
+                <span class="marquee-item">হিসাববিজ্ঞান</span>
+                <span class="marquee-dot">◆</span>
+                <span class="marquee-item">ব্যবসায় সংগঠন</span>
+                <span class="marquee-dot">◆</span>
+                <span class="marquee-item">মার্কেটিং</span>
+                <span class="marquee-dot">◆</span>
+                <span class="marquee-item">ডিজিটাল টেকনোলজি</span>
+                <span class="marquee-dot">◆</span>
+                <span class="marquee-item">হিউম্যান রিসোর্স</span>
+                <span class="marquee-dot">◆</span>
+                <span class="marquee-item">বিজনেস ইংলিশ</span>
+                <span class="marquee-dot">◆</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag reveal-up">ফিচার সমূহ</span>
+                <h2 class="section-title reveal-up reveal-delay-1">
+                    কেন আমাদের অ্যাপ <span class="highlight-text" data-highlight>সেরা?</span>
+                </h2>
+                <p class="section-subtitle reveal-up reveal-delay-2">
+                    পড়াশোনাকে আরো সহজ, স্মার্ট এবং আনন্দদায়ক করতে আমাদের অত্যাধুনিক ফিচারসমূহ
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card feature-card-large reveal-up" id="featureCard1">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path class="icon-line-draw" d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                                <path class="icon-line-draw"
+                                    d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="feature-title">সব গাইড এক জায়গায়</h3>
+                    <p class="feature-desc">আপনার প্রয়োজনীয় সব শিক্ষামূলক গাইডের পিডিএফ এক অ্যাপেই পাবেন। প্রতিটি
+                        পিডিএফ হাই কোয়ালিটি, যা পড়ার অভিজ্ঞতাকে সহজ এবং স্বাচ্ছন্দ্যময় করে তোলে।</p>
+                    <div class="feature-visual">
+                        <img src="img/feature.png" alt="Feature Preview" class="feature-preview-img" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card reveal-up reveal-delay-1" id="featureCard2">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon feature-icon-purple">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path class="icon-line-draw"
+                                    d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="feature-title">অনলাইন ও অফলাইন</h3>
+                    <p class="feature-desc">প্রথমবার ডাউনলোড করলেই ইন্টারনেট ছাড়াই যেকোনো সময় পড়তে পারবেন। অফিস,
+                        বাসা, বা ভ্রমণে – যেখানে প্রয়োজন সেখানেই পিডিএফ পড়ুন।</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card reveal-up reveal-delay-2" id="featureCard3">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon feature-icon-pink">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle class="icon-line-draw" cx="11" cy="11" r="8" />
+                                <path class="icon-line-draw" d="m21 21-4.3-4.3" />
+                                <path class="icon-line-draw" d="M11 8v6M8 11h6" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="feature-title">স্মার্ট জুম সিস্টেম</h3>
+                    <p class="feature-desc">পিডিএফ ফাইলগুলো জুম ইন/জুম আউট করে পছন্দমতো আকারে পড়ার সুবিধা পাবেন। দীর্ঘ
+                        সময় পড়ার জন্য আরামদায়ক ভিউ নিশ্চিত।</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card reveal-up reveal-delay-1" id="featureCard4">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon feature-icon-amber">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path class="icon-line-draw" d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                                <path class="icon-line-draw" d="M13.73 21a2 2 0 0 1-3.46 0" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="feature-title">দৈনন্দিন আপডেট</h3>
+                    <p class="feature-desc">শিক্ষা সম্পর্কিত গুরুত্বপূর্ণ তথ্য এবং আপডেট নোটিফিকেশনের মাধ্যমে সরাসরি
+                        হাতে পৌঁছে যাবে। সময়মতো সঠিক তথ্য পাওয়ার নিশ্চয়তা।</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card reveal-up reveal-delay-2" id="featureCard5">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon feature-icon-cyan">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect class="icon-line-draw" x="3" y="3" width="18" height="18" rx="2" />
+                                <path class="icon-line-draw" d="M9 9h6v6H9z" />
+                                <path class="icon-line-draw"
+                                    d="M9 1v2M15 1v2M9 21v2M15 21v2M1 9h2M1 15h2M21 9h2M21 15h2" />
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="feature-title">ইউজার-ফ্রেন্ডলি</h3>
+                    <p class="feature-desc">সহজ ও সুন্দর ডিজাইন, যা যে কেউ খুব দ্রুত শিখে ব্যবহার করতে পারবে। আধুনিক
+                        UI/UX দিয়ে তৈরি স্বজ্ঞাত ইন্টারফেস।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subjects Section -->
+    <section class="subjects" id="subjects">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag reveal-up">বিষয়সমূহ</span>
+                <h2 class="section-title reveal-up reveal-delay-1">
+                    অ্যাপে যে <span class="highlight-text" data-highlight>বিষয়গুলো</span> আছে
+                </h2>
+                <p class="section-subtitle reveal-up reveal-delay-2">
+                    নতুন সিলেবাস অনুযায়ী সকল বিষয়ের সম্পূর্ণ গাইড
+                </p>
+            </div>
+
+            <div class="subjects-grid">
+                <div class="subject-card reveal-up" data-tilt>
+                    <div class="subject-icon" style="--accent: #EC4899;">
+                        <span>ক</span>
+                    </div>
+                    <div class="subject-info">
+                        <h4>বাংলা (Bangla)</h4>
+                        <p>নতুন সিলেবাস অনুযায়ী</p>
+                    </div>
+                    <div class="subject-arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="subject-card reveal-up reveal-delay-1" data-tilt>
+                    <div class="subject-icon" style="--accent: #3B82F6;">
+                        <span>E</span>
+                    </div>
+                    <div class="subject-info">
+                        <h4>ইংরেজি (English)</h4>
+                        <p>নতুন সিলেবাস অনুযায়ী</p>
+                    </div>
+                    <div class="subject-arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="subject-card reveal-up reveal-delay-2" data-tilt>
+                    <div class="subject-icon" style="--accent: #F59E0B;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" />
+                            <path d="M8 21h8" />
+                            <path d="M12 17v4" />
+                        </svg>
+                    </div>
+                    <div class="subject-info">
+                        <h4>কম্পিউটার অফিস এপ্লিকেশন</h4>
+                        <p>নতুন সিলেবাস অনুযায়ী</p>
+                    </div>
+                    <div class="subject-arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="subject-card reveal-up" data-tilt>
+                    <div class="subject-icon" style="--accent: #10B981;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                            <rect x="8" y="2" width="8" height="4" rx="1" />
+                            <path d="M9 12h6" />
+                            <path d="M9 16h6" />
+                        </svg>
+                    </div>
+                    <div class="subject-info">
+                        <h4>অফিস ম্যানেজমেন্ট</h4>
+                        <p>নতুন সিলেবাস অনুযায়ী</p>
+                    </div>
+                    <div class="subject-arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="subject-card reveal-up reveal-delay-1" data-tilt>
+                    <div class="subject-icon" style="--accent: #6366F1;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
+                            <path d="M22 12A10 10 0 0 0 12 2v10z" />
+                        </svg>
+                    </div>
+                    <div class="subject-info">
+                        <h4>হিসাববিজ্ঞান নীতি ও প্রয়োগ</h4>
+                        <p>নতুন সিলেবাস অনুযায়ী</p>
+                    </div>
+                    <div class="subject-arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="subject-card reveal-up reveal-delay-2" data-tilt>
+                    <div class="subject-icon" style="--accent: #EF4444;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="4" y="2" width="16" height="20" rx="2" />
+                            <path d="M9 22v-4h6v4" />
+                            <path d="M8 6h.01" />
+                            <path d="M16 6h.01" />
+                            <path d="M8 10h.01" />
+                            <path d="M16 10h.01" />
+                            <path d="M8 14h.01" />
+                            <path d="M16 14h.01" />
+                        </svg>
+                    </div>
+                    <div class="subject-info">
+                        <h4>ব্যবসায় সংগঠন ও ব্যবস্থাপনা</h4>
+                        <p>নতুন সিলেবাস অনুযায়ী</p>
+                    </div>
+                    <div class="subject-arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="subject-card reveal-up" data-tilt>
+                    <div class="subject-icon" style="--accent: #14B8A6;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                            <polyline points="16 7 22 7 22 13" />
+                        </svg>
+                    </div>
+                    <div class="subject-info">
+                        <h4>মার্কেটিং নীতি ও প্রয়োগ</h4>
+                        <p>নতুন সিলেবাস অনুযায়ী</p>
+                    </div>
+                    <div class="subject-arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="subject-card reveal-up reveal-delay-1" data-tilt>
+                    <div class="subject-icon" style="--accent: #8B5CF6;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                            <path d="M2 12h20" />
+                        </svg>
+                    </div>
+                    <div class="subject-info">
+                        <h4>ডিজিটাল টেকনোলজি ইন বিজনেস</h4>
+                        <p>নতুন সিলেবাস অনুযায়ী</p>
+                    </div>
+                    <div class="subject-arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="subject-card reveal-up reveal-delay-2" data-tilt>
+                    <div class="subject-icon" style="--accent: #F97316;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                    </div>
+                    <div class="subject-info">
+                        <h4>হিউম্যান রিসোর্স ম্যানেজমেন্ট</h4>
+                        <p>নতুন সিলেবাস অনুযায়ী</p>
+                    </div>
+                    <div class="subject-arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="subject-card reveal-up" data-tilt>
+                    <div class="subject-icon" style="--accent: #06B6D4;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z" />
+                            <path d="M8 12h.01" />
+                            <path d="M12 12h.01" />
+                            <path d="M16 12h.01" />
+                        </svg>
+                    </div>
+                    <div class="subject-info">
+                        <h4>বিজনেস ইংলিশ এন্ড কমিউনিকেশন</h4>
+                        <p>নতুন সিলেবাস অনুযায়ী</p>
+                    </div>
+                    <div class="subject-arrow">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="screenshots" id="screenshots">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag reveal-up">স্ক্রিনশট</span>
+                <h2 class="section-title reveal-up reveal-delay-1">
+                    অ্যাপের <span class="highlight-text" data-highlight>ভিতরে</span> দেখুন
+                </h2>
+                <p class="section-subtitle reveal-up reveal-delay-2">
+                    আমাদের অ্যাপের বিভিন্ন স্ক্রিনের প্রিভিউ
+                </p>
+            </div>
+
+            <div class="carousel-wrapper reveal-up reveal-delay-1" id="screenshotCarousel">
+                <!-- Navigation Arrows -->
+                <button class="carousel-arrow carousel-arrow-prev" id="carouselPrev" aria-label="Previous screenshot">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m15 18-6-6 6-6" />
+                    </svg>
+                </button>
+                <button class="carousel-arrow carousel-arrow-next" id="carouselNext" aria-label="Next screenshot">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m9 18 6-6-6-6" />
+                    </svg>
+                </button>
+
+                <!-- Carousel Track -->
+                <div class="carousel-viewport">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="carousel-slide" data-index="0">
+                            <div class="screenshot-glow"></div>
+                            <div class="screenshot-phone">
+                                <img src="img/1.png" alt="Home Screen" loading="lazy">
+                            </div>
+                            <p class="screenshot-label">হোম স্ক্রিন</p>
+                        </div>
+                        <div class="carousel-slide" data-index="1">
+                            <div class="screenshot-glow"></div>
+                            <div class="screenshot-phone">
+                                <img src="img/2.png" alt="Read & Download Screen" loading="lazy">
+                            </div>
+                            <p class="screenshot-label">পড়ুন ও ডাউনলোড</p>
+                        </div>
+                        <div class="carousel-slide" data-index="2">
+                            <div class="screenshot-glow"></div>
+                            <div class="screenshot-phone">
+                                <img src="img/3.png" alt="Notification Screen" loading="lazy">
+                            </div>
+                            <p class="screenshot-label">নোটিফিকেশন</p>
+                        </div>
+                        <div class="carousel-slide" data-index="3">
+                            <div class="screenshot-glow"></div>
+                            <div class="screenshot-phone">
+                                <img src="img/4.png" alt="Guide Books Screen" loading="lazy">
+                            </div>
+                            <p class="screenshot-label">পিডিএফ রিডার</p>
+                        </div>
+                        <div class="carousel-slide" data-index="4">
+                            <div class="screenshot-glow"></div>
+                            <div class="screenshot-phone">
+                                <img src="img/5.png" alt="PDF Reader Screen" loading="lazy">
+                            </div>
+                            <p class="screenshot-label">ইংরেজি গাইড বই</p>
+                        </div>
+                        <div class="carousel-slide" data-index="5">
+                            <div class="screenshot-glow"></div>
+                            <div class="screenshot-phone">
+                                <img src="img/6.png" alt="Settings Screen" loading="lazy">
+                            </div>
+                            <p class="screenshot-label">কম্পিউটার অফিস এ্যাপ্লিকেশন</p>
+                        </div>
+                        <div class="carousel-slide" data-index="6">
+                            <div class="screenshot-glow"></div>
+                            <div class="screenshot-phone">
+                                <img src="img/7.png" alt="Bookmark Screen" loading="lazy">
+                            </div>
+                            <p class="screenshot-label">অফিস ম্যানেজমেন্ট</p>
+                        </div>
+                        <div class="carousel-slide" data-index="7">
+                            <div class="screenshot-glow"></div>
+                            <div class="screenshot-phone">
+                                <img src="img/8.png" alt="Search Screen" loading="lazy">
+                            </div>
+                            <p class="screenshot-label">হিসাববিজ্ঞান নীতি ও প্রয়োগ</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dot Indicators -->
+                <div class="carousel-dots" id="carouselDots">
+                    <button class="carousel-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+                    <button class="carousel-dot" data-slide="1" aria-label="Go to slide 2"></button>
+                    <button class="carousel-dot" data-slide="2" aria-label="Go to slide 3"></button>
+                    <button class="carousel-dot" data-slide="3" aria-label="Go to slide 4"></button>
+                    <button class="carousel-dot" data-slide="4" aria-label="Go to slide 5"></button>
+                    <button class="carousel-dot" data-slide="5" aria-label="Go to slide 6"></button>
+                    <button class="carousel-dot" data-slide="6" aria-label="Go to slide 7"></button>
+                    <button class="carousel-dot" data-slide="7" aria-label="Go to slide 8"></button>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="carousel-progress">
+                    <div class="carousel-progress-bar" id="carouselProgress"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="howItWorks">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag reveal-up">কিভাবে ব্যবহার করবেন</span>
+                <h2 class="section-title reveal-up reveal-delay-1">
+                    মাত্র <span class="highlight-text" data-highlight>৩ ধাপে</span> শুরু করুন
+                </h2>
+            </div>
+
+            <div class="steps-container">
+                <div class="step-line">
+                    <svg class="step-line-svg" viewBox="0 0 4 300" preserveAspectRatio="none">
+                        <line class="step-line-draw" x1="2" y1="0" x2="2" y2="300" stroke="url(#stepLineGrad)"
+                            stroke-width="2" stroke-dasharray="6,6" />
+                        <defs>
+                            <linearGradient id="stepLineGrad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#00D4AA" />
+                                <stop offset="50%" stop-color="#8B5CF6" />
+                                <stop offset="100%" stop-color="#EC4899" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+
+                <div class="step-item reveal-up" id="step1">
+                    <div class="step-number">
+                        <span>১</span>
+                    </div>
+                    <div class="step-content">
+                        <h3>অ্যাপ ডাউনলোড করুন</h3>
+                        <p>Google Play Store থেকে ফ্রিতে HSC BMT সকল গাইড বই অ্যাপটি ডাউনলোড করুন।</p>
+                    </div>
+                </div>
+
+                <div class="step-item reveal-up reveal-delay-1" id="step2">
+                    <div class="step-number step-number-purple">
+                        <span>২</span>
+                    </div>
+                    <div class="step-content">
+                        <h3>বিষয় নির্বাচন করুন</h3>
+                        <p>আপনার প্রয়োজনীয় বিষয়ের গাইড বই নির্বাচন করুন এবং অনলাইনে পড়ুন বা ডাউনলোড করুন।</p>
+                    </div>
+                </div>
+
+                <div class="step-item reveal-up reveal-delay-2" id="step3">
+                    <div class="step-number step-number-pink">
+                        <span>৩</span>
+                    </div>
+                    <div class="step-content">
+                        <h3>পড়া শুরু করুন</h3>
+                        <p>অফলাইনে বা অনলাইনে যেখানে ইচ্ছা সেখানে পড়ুন। স্মার্ট জুম দিয়ে আরামে পড়ুন।</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Download Section -->
+    <section class="download-section" id="download">
+        <div class="download-bg-elements">
+            <div class="download-orb download-orb-1"></div>
+            <div class="download-orb download-orb-2"></div>
+        </div>
+        <div class="section-container">
+            <div class="download-content">
+                <div class="download-text">
+                    <span class="section-tag reveal-up">ফ্রি ডাউনলোড</span>
+                    <h2 class="section-title reveal-up reveal-delay-1">
+                        আজই ডাউনলোড করুন <br><span class="highlight-text" data-highlight>HSC BMT সকল গাইড বই</span>
+                    </h2>
+                    <p class="section-subtitle reveal-up reveal-delay-2">
+                        তোমাদের পড়াশোনা কে আরো একধাপ এগিয়ে নিয়ে যেতে আজই আমাদের অ্যাপটি ডাউনলোড করো এবং বন্ধুদের সাথে
+                        শেয়ার করো।
+                    </p>
+                    <div class="download-buttons reveal-up reveal-delay-3">
+                        <a href="https://play.google.com/store/apps/details?id=com.hscbmt.guideboi" class="store-btn"
+                            id="playStoreBtn" target="_blank" rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                                <path
+                                    d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302c.782.452.782 1.58 0 2.032l-2.592 1.499-2.532-2.531 2.822-3.302zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z" />
+                            </svg>
+                            <div class="store-btn-text">
+                                <span class="store-btn-small">GET IT ON</span>
+                                <span class="store-btn-large">Google Play</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="download-visual reveal-scale">
+                    <div class="download-phone-glow"></div>
+                    <img src="img/feature.png" alt="App Feature Preview" class="download-app-preview" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="img/hsc bmt app icon.png" alt="HSC BMT" class="footer-logo-img">
+                        <span>HSC BMT - সকল গাইড বই</span>
+                    </div>
+                    <p class="footer-desc">
+                        এইচএসসি বিএমটি শাখার সকল বিষয়ের নির্ভুল সমাধান এক অ্যাপে। নতুন সিলেবাস অনুযায়ী আপডেটেড গাইড
+                        বই।
+                    </p>
+                </div>
+                <div class="footer-links-group">
+                    <h4>দ্রুত লিংক</h4>
+                    <ul>
+                        <li><a href="#hero">হোম</a></li>
+                        <li><a href="#features">ফিচার</a></li>
+                        <li><a href="#subjects">বিষয়সমূহ</a></li>
+                        <li><a href="#download">ডাউনলোড</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-group">
+                    <h4>সাপোর্ট</h4>
+                    <ul>
+                        <li><a href="#">প্রাইভেসি পলিসি</a></li>
+                        <li><a href="#">শর্তাবলী</a></li>
+                        <li><a href="#">যোগাযোগ</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 HSC BMT - সকল গাইড বই। সর্বসত্ব সংরক্ষিত।</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link" aria-label="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="YouTube">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Telegram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="m18 15-6-6-6 6" />
+        </svg>
+    </button>
+
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
